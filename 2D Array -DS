@@ -1,0 +1,26 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the hourglassSum function below.
+def hourglassSum(arr):
+    
+    return max([sum([sum(t[p:p+3]) for n,t in enumerate(arr[k:k+3]) if n!=1]+[arr[k:k+3][1][p+1]]) for k,p in [(i,j) for i in range(4) for j in range(4)]])        
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    arr = []
+
+    for _ in range(6):
+        arr.append(list(map(int, input().rstrip().split())))
+
+    result = hourglassSum(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
