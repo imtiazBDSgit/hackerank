@@ -62,6 +62,16 @@ def removeDuplicates(head):
     temp.next=head
     return head1.next
     
+#implementation 2
+def removeDuplicates(head):
+    temp=head
+    while head and head.next is not None:
+        if head.data==head.next.data:
+            head.next=head.next.next
+        else:
+            head=head.next
+    return temp
+    
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
